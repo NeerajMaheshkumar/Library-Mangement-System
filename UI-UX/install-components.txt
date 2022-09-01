@@ -1,0 +1,8 @@
+ng add @angular/material
+npm i bootstrap
+npm i ngx-bootstrap
+npm i ngx-toastr
+npm i ngx-cookie-service
+npm i angular2-text-mask
+npm i @ng-bootstrap/bootstrap
+npm i ng2-bootstrap-modal
