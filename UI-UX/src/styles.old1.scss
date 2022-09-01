@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.submitbtncss{
+    background-color: #01332d;
+    color: white;
+    border-radius: 60px;
+}
+
+.cancelbtncss{
+    background-color: #aa0404;
+    color: white;
+    border-radius: 60px;
+}
