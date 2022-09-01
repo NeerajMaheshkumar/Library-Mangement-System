@@ -1,0 +1,44 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 style="text-align: center">Book List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="text-align:center">Book Code</th>
+            <th style="text-align:center">Title</th>
+            <th style="text-align:center">ISBN</th>
+            <th style="text-align:center">Author</th>
+            <th style="text-align:center">Publication</th>
+            <th style="text-align:center">Genre</th>
+            <th style="text-align:center">Language</th>
+            <th style="text-align:center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of book" style="background-color:rgb(255, 170, 121)">
+            <td style="text-align:center">{{book.bookCode}}</td>
+            <td style="text-align:center">{{book.title}}</td>
+            <td style="text-align:center">{{book.isbn}}</td>
+            <td style="text-align:center">{{book.author}}</td>
+            <td style="text-align:center">{{book.publication}}</td>
+            <td style="text-align:center">{{book.genre}}</td>
+            <td style="text-align:center">{{book.language}}</td>
+
+
+            <td style="text-align:center">
+              <a [routerLink]="['/Pages/viewbook', book.id]">
+              <img style="height: 35px;width:35px;" src="../assets/Images/eye.png"></a> &nbsp; &nbsp; 
+            <a [routerLink]="['/Pages/updatebook', book.id]">
+              <img style="height: 35px;width: 35px;" src="../assets/Images/edit.png"></a>&nbsp; &nbsp; 
+            <a [routerLink]="['/Pages/confirmdeletebook', book.id]">
+              <img style="height: 35px;width:35px;" src="../assets/Images/red-bin.png"></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

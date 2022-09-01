@@ -1,0 +1,28 @@
+<div >
+    <a mat-list-item [ngStyle]="{'padding-left': (depth * 12) + 'px'}" (click)="onItemSelected(item)"
+      class="main-left-side-bar" [ngClass]="{'FontFamilyHeader':item.children.length!=0,
+                    'FontFamilyContent':item.children.length==0}">
+                    
+  
+     <div style="width: 70%;">
+       {{item.displayName}}
+      </div>
+      <mat-divider *ngIf="item.children.length==0"></mat-divider>
+     <div style="width: 30%;">
+        <span fxFlex *ngIf="item.children && item.children.length" >
+          <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">
+            chevron_right
+          </mat-icon>
+        </span>
+      </div>
+      
+    </a>
+  
+  
+  </div>
+  <!-- <mat-divider></mat-divider> -->
+  <div *ngIf="expanded">
+    <app-main-left-sidebar [ngClass]="{'FontFamilyContent':child.length==0}" *ngFor="let child of item.children"
+      [item]="child" [depth]="depth+1">
+    </app-main-left-sidebar>
+  </div>

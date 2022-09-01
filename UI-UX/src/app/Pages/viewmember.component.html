@@ -1,0 +1,183 @@
+
+
+    <div class="MenuHeader">
+      View Member
+     </div>
+     
+     <div class="container">
+         
+       <form [formGroup]="MemberFormGroup">
+
+
+
+           
+       <div class="row">
+              
+           <div class="col-md-9 offset-md-1">
+                             
+                <div class="row">
+                  
+                   
+               <div class="col-md-4">
+                   <mat-form-field appearance="outline" class="widthForm">
+                   <mat-label>Member Code</mat-label>
+                   <input matInput required [(ngModel)]="member.memberCode" autocomplete="off"  formControlName="memberCode" readonly/>
+                   </mat-form-field>
+               </div>
+               
+               <div class="col-md-4">
+                      <mat-form-field appearance="outline" class="widthForm">
+                       <mat-label>Member Name</mat-label>
+                      <input matInput [(ngModel)]="member.memberName" autocomplete="off"  formControlName="memberName" (keypress)="keyPress1($event)" [ngClass]="{ 'is-invalid': submitted && f.memberName.errors }" readonly/>
+                       <div *ngIf="submitted && f.memberName.errors" class="invalid-feedback">
+                               <div *ngIf="f.memberName.errors.required">Member Name is required</div>
+                               <div *ngIf="f.memberName.errors.pattern || f.memberName.errors.maxlength">Member Name cannot exceed 25 letters </div>
+                           </div>
+                       </mat-form-field>
+                       
+               </div>
+               
+               <div class="col-md-4">
+               
+                       <mat-form-field appearance="outline" class="widthForm">
+                       <mat-label>Address</mat-label>
+                       <input matInput [(ngModel)]="member.memberAddress" autocomplete="off"  formControlName="memberAddress" readonly/>
+                       </mat-form-field>
+                       
+               </div>
+           
+            </div>
+       </div>
+           <div class="col-md-3"> </div>
+       </div>
+   <br>
+
+   <div class="row">
+       <div class="col-md-9 offset-md-1">
+               <div class="row">
+
+         
+                <div class="col-md-4">
+               <mat-form-field appearance="outline" class="FontFormatsize fullwidth">
+               <mat-label>Phone Number</mat-label>
+               <input matInput [(ngModel)]="member.phoneNumber" autocomplete="off"  formControlName="phoneNumber" (keypress)="keyPress($event)" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" maxlength="10" minlength="10" readonly/>
+               <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+                       <div *ngIf="f.phonenumber.errors.required">Phone number is required</div>
+                       <div *ngIf="f.phonenumber.errors.pattern || f.phonenumber.errors.maxlength || f.phonenumber.errors.minlength">Phone number must be exactly 10 numbers</div>
+                   </div>
+       
+       
+       </mat-form-field>
+               
+
+           </div>
+               
+           <div class="col-md-4">
+           
+                  <mat-form-field appearance="outline" class="FontFormatsize fullwidth">
+                   <mat-label>Aadhar Number</mat-label>
+                   <input matInput [(ngModel)]="member.aadharNo" autocomplete="off"  formControlName="aadharNo" (keypress)="keyPress($event)" [ngClass]="{ 'is-invalid': submitted && f.aadharNo.errors }" maxlength="12" minlength="12" readonly/>
+                   <div *ngIf="submitted && f.aadharNo.errors" class="invalid-feedback">
+                       <div *ngIf="f.aadharNo.errors.required">Aadhar number is required</div>
+                       <div *ngIf="f.aadharNo.errors.pattern || f.aadharNo.errors.maxlength || f.aadharNo.errors.minlength">Aadhar number must be exactly 12 numbers</div>
+                   </div>
+               </mat-form-field>
+           </div>
+           
+
+    </div>
+   </div>
+
+       <div class="col-md-3"> </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="row">
+       <div class="col-md-9 offset-md-1">
+               <div class="row">
+                   &nbsp;
+           
+
+    </div>
+   </div>
+
+       <div class="col-md-3"> </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+       <div class="col-md-9 offset-md-1">
+               <div class="row">
+
+                       <div class="col-md-4">
+                               <mat-label id="example-radio-group-label">Gender</mat-label><br><br>
+                               <mat-radio-group fxLayout="column" [(ngModel)]="member.gender" formControlName="gender" (change)="hideonselect()" [disabled]="true">
+                               <mat-radio-button class="FontFamilyContent" *ngFor="let gender of genders" [value]="gender">{{gender }}
+                                   &nbsp;&nbsp;</mat-radio-button>
+                           </mat-radio-group>
+                        </div>
+                 </div>
+          </div>
+          <div class="col-md-3"> </div>
+</div>
+
+
+<div class="row">
+       <div class="col-md-9 offset-md-1">
+         <div class="row">
+           <div class="col-md-1">
+                       
+               </div>
+                       
+                   <div class="col-md-1">
+                           &nbsp;
+                   </div>
+           </div>
+       </div>
+   </div>
+
+
+<div class="row">
+   <div class="col-md-8 offset-md-1">
+     <div class="row">
+           <div class="col-md-5">
+                   &nbsp;
+           </div>
+       <div class="col-md-1">
+                   <button type="button"  mat-button class="submitbtncss" (click)="back()">Back to Member List</button>
+           </div>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       </div>
+   </div>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+

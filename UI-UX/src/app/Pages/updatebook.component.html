@@ -1,0 +1,260 @@
+
+
+    <div class="MenuHeader">
+        Update Book
+      </div>
+      
+      <form [formGroup]="BookFormGroup">
+
+
+
+            
+        <div class="row">
+               
+            <div class="col-md-9 offset-md-1">
+                              
+                 <div class="row">
+                   
+                    
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline" class="widthForm">
+                    <mat-label>Book Code</mat-label>
+                    <input matInput required [(ngModel)]="book.bookCode" autocomplete="off"  formControlName="bookCode" readonly/>
+                    </mat-form-field>
+                </div>
+                
+                <div class="col-md-4">
+                       <mat-form-field appearance="outline" class="widthForm">
+                        <mat-label>Title</mat-label>
+                        <input required matInput [(ngModel)]="book.title" autocomplete="off"  formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" maxlength="25" minlength="1">
+                        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                <div *ngIf="f.title.errors.required">Title is required</div>
+                                <div *ngIf="f.title.errors.pattern || f.title.errors.maxlength || f.title.errors.minlength">Title must be exactly 13 numbers</div>
+                            </div>
+                        </mat-form-field>
+                </div>
+                
+                <div class="col-md-4">
+                
+                        <mat-form-field appearance="outline" class="widthForm">
+                        <mat-label>Description</mat-label>
+                        <input matInput [(ngModel)]="book.description" autocomplete="off"  formControlName="description">
+                        </mat-form-field>
+                        
+                </div>
+            
+             </div>
+        </div>
+            <div class="col-md-3"> </div>
+        </div>
+    <br>
+
+
+
+    <div class="row">
+               
+    <div class="col-md-9 offset-md-1">
+                      
+         <div class="row">
+           
+            
+        <div class="col-md-4">
+            <mat-form-field appearance="outline" class="widthForm">
+            <mat-label>ISBN</mat-label>
+            <input required matInput [(ngModel)]="book.isbn" autocomplete="off"  formControlName="isbn" (keypress)="keyPress($event)" [ngClass]="{ 'is-invalid': submitted && f.isbn.errors }" maxlength="13" minlength="13">
+            <div *ngIf="submitted && f.isbn.errors" class="invalid-feedback">
+                <div *ngIf="f.isbn.errors.required">ISBN number is required</div>
+                <div *ngIf="f.isbn.errors.pattern || f.isbn.errors.maxlength || f.isbn.errors.minlength">Title must not be more than 25 characters</div>
+            </div>
+        </mat-form-field>
+        </div>
+        
+        <div class="col-md-4">
+               <mat-form-field appearance="outline" class="widthForm">
+                <mat-label>Author</mat-label>
+                <input  required matInput [(ngModel)]="book.author" autocomplete="off"  formControlName="author" (keypress)="keyPress1($event)" [ngClass]="{ 'is-invalid': submitted && f.author.errors }" maxlength="25" minlength="1">
+                <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
+                        <div *ngIf="f.author.errors.required">Author is required</div>
+                        <div *ngIf="f.author.errors.pattern || f.author.errors.maxlength || f.author.errors.minlength">Title must be exactly 13 numbers</div>
+                    </div>
+                </mat-form-field>
+        </div>
+        
+        <div class="col-md-4">
+        
+                <mat-form-field appearance="outline" class="widthForm">
+                <mat-label>Publication</mat-label>
+                <input matInput [(ngModel)]="book.publication" autocomplete="off"  formControlName="publication" (keypress)="keyPress1($event)" [ngClass]="{ 'is-invalid': submitted && f.publication.errors }" maxlength="100" minlength="1">
+                <div *ngIf="submitted && f.publication.errors" class="invalid-feedback">
+                        <div *ngIf="f.publication.errors.required">Publication is required</div>
+                        <div *ngIf="f.publication.errors.pattern || f.publication.errors.maxlength || f.publication.errors.minlength">Title must be exactly 13 numbers</div>
+                </div>
+                </mat-form-field>
+                
+        </div>
+    
+     </div>
+</div>
+    <div class="col-md-3"> </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+               
+        <div class="col-md-9 offset-md-1">
+                          
+             <div class="row">
+               
+                
+            <div class="col-md-4">
+                    <mat-form-field>
+                            <mat-label>Genre</mat-label>
+                          <mat-select [(ngModel)]="book.genre" formControlName="genre">
+                                <mat-option *ngFor="let genres of genre" [value]="genres.value" >
+                                {{ genres.viewValue }}
+                                </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+            </div>
+            
+            <div class="col-md-4">
+                    <mat-form-field>
+                            <mat-label>Languages</mat-label>
+                          <mat-select [(ngModel)]="book.language" formControlName="language">
+                                <mat-option *ngFor="let languages of language" [value]="languages.value" >
+                                {{ languages.viewValue }}
+                                </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+            </div>
+            
+            <div class="col-md-4">
+            
+                    <mat-form-field>
+                            <mat-label>Book Format</mat-label>
+                            <mat-select [(ngModel)]="book.bookFormat"  formControlName="bookFormat">
+                              <mat-option *ngFor="let bookformats of bookformat" [value]="bookformats.value">{{bookformats.viewValue}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    
+            </div>
+        
+         </div>
+    </div>
+        <div class="col-md-3"> </div>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+               
+            <div class="col-md-9 offset-md-1">
+                              
+                 <div class="row"> &nbsp;</div>
+        </div>
+            <div class="col-md-3"> </div>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="row">
+               
+            <div class="col-md-9 offset-md-1">
+                              
+                 <div class="row">
+                   
+                    
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline" class="widthForm"(keypress)="keyPress($event)" [ngClass]="{ 'is-invalid': submitted && f.bookCount.errors }" maxlength="5" minlength="1">
+                        <mat-label>Book Count</mat-label>
+                        <input matInput [(ngModel)]="book.bookCount" autocomplete="off"  formControlName="bookCount">
+                        <div *ngIf="submitted && f.bookCount.errors" class="invalid-feedback">
+                                <div *ngIf="f.isbn.errors.required">ISBN number is required</div>
+                            <div *ngIf="f.bookCount.errors.pattern || f.bookCount.errors.maxlength">Book Countmust be exactly 13 numbers</div>
+                        </div>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-3"> </div>
+        </div>
+
+
+   
+        <div class="row">
+               
+            <div class="col-md-9 offset-md-1">
+                              
+                 <div class="row">
+                   
+                    
+                <div class="col-md-4">
+                         <section *ngFor="let references of reference" class="example-section" >
+                            <mat-checkbox (change)="onChangeEventFunc(type.name, $event)" class="example-margin" formControlName="isReference" [(ngModel)]="book.isReference">
+                            {{ reference.name}}
+                            </mat-checkbox>
+                            <label id="example-radio-group-label">&nbsp; Is Reference Only</label>
+                            </section>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-3"> </div>
+        </div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-9 offset-md-1">
+          <div class="row">
+            <div class="col-md-1">
+                        
+                </div>
+                        
+                    <div class="col-md-1">
+                            &nbsp;
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="row">
+    <div class="col-md-8 offset-md-1">
+      <div class="row">
+            <div class="col-md-5">
+                    &nbsp;
+            </div>
+        <div class="col-md-1">
+                    <button type="button"  mat-button class="submitbtncss" (click)="submit()"  >Submit</button>
+            </div>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    
+                <div class="col-md-1">
+                        <button type="button" mat-button class="cancelbtncss" (click)="back()"> Cancel</button>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+</form>
+
+
+
+
+

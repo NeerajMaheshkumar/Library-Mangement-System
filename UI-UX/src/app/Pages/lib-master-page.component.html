@@ -1,0 +1,93 @@
+
+<div class="wrapper">
+   
+
+    <!--<app-main-header></app-main-header>-->
+  
+    <mat-sidenav-container class="sidenav-container" style="height: 50%;overflow-y: hidden;">
+      <mat-sidenav #appDrawer class="sidenav" mode="side" opened="true" fxHide.xs style="width: 205px;position: fixed; background-color: #e4ebec;">
+        <mat-toolbar   id="secondToolbar" color="warn"
+        [ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}" style="background-color:#5cfc00;color: rgb(63, 14, 241);">
+          <!--<img style="height: 45px;width: 150px;" [src]="imgUrl">-->
+        <!--<img style="height: 45px;width: 150px;" [src]="'../../../assets/Images/lib_bg.jpg'">-->
+        <marquee style="color:black">LMS</marquee>
+           <div class="logo"></div>
+    
+         
+        </mat-toolbar>
+        <mat-nav-list>
+         <app-main-left-sidebar *ngFor="let item of navItems" [item]="item"></app-main-left-sidebar>
+          <!--<app-main-left-sidebar *ngFor="let item of ['1', '2', '3', '4','5','6']" [item]="item"></app-main-left-sidebar>-->
+          
+          
+        </mat-nav-list>
+       
+      </mat-sidenav>
+      
+      <mat-sidenav-content>
+        <mat-toolbar class="fixed-header" style="background-color:yellow">
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button style="
+                border-radius: inherit;
+                    width: 30px;
+                    height: 100px;
+                    color:black;" (click)="toggle()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <mat-label style="color: rgb(32, 6, 175);">
+          <!--{{companyname}}-->NEERU'S LIBRARY
+        </mat-label>
+          <!-- <app-main-header></app-main-header> -->
+          <div style="width: 100%" >
+            <mat-label style="font-size: small;
+            color: black;
+            float: right;
+            margin-top: 4px;
+            " [ngStyle]="{'margin-right': sidenav ? '208px': '0px'}">
+            <!--  -->
+            <table>
+                <tr></tr><tr></tr>
+                <tr>
+                  <td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center"><img style="height: 20px;width: 20px;" src="../assets/Images/calendar.png"><br><img style="height: 20px;width: 20px;" src="../assets/Images/time.png"> </td>
+                <td style="text-align:center">{{date   | date: "dd-MM-yyyy"}}<br> {{date   | date: "HH:mm:ss"}}</td>
+              </tr>
+            </table>
+              </mat-label>
+            <button mat-icon-button  (click)="clickinbox()" class="styleHeader" style="float: right;margin-bottom: 20px;">
+            <mat-icon style="margin-bottom:5px;margin-top:25px;">
+              email
+            </mat-icon>
+          </button>
+            <button mat-button [matMenuTriggerFor]="menu" id="exp" (click)="expanded=!expanded" class="styleHeader" style="float: right;">
+              <mat-label>
+                {{loginuser}}
+              </mat-label>
+              <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'" style="margin-bottom:5px;margin-top:25px;">
+                  chevron_right
+              </mat-icon>
+            </button>
+          </div>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let a of userarray" (click)="userClick(a.Value)"
+            [disabled]="a.Value !== 'Logout'">
+              <mat-icon>{{a.icon}}</mat-icon>
+              {{a.Value}}
+            </button>
+          </mat-menu>
+        </mat-toolbar>
+        
+        <!-- Add Content Here -->
+        <!-- height: 520px;overflow-x: hidden; -->
+        
+        <div class="pxMedia">
+          <router-outlet></router-outlet>
+        </div>
+        <div fxFlex></div>
+        <!-- <app-main-footer></app-main-footer> -->
+      </mat-sidenav-content>
+  
+    </mat-sidenav-container>
+  
+  
+  </div>
+  

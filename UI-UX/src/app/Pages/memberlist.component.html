@@ -1,0 +1,46 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 style="text-align: center">Member List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="text-align:center">Member Code</th>
+            <th style="text-align:center">Name</th>
+            <th style="text-align:center">Phone Number</th>
+            <th style="text-align:center">Address</th>
+            <th style="text-align:center">Aadhar Number</th>
+            <th style="text-align:center">Gender</th>
+            <th style="text-align:center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of member" style="background-color:rgb(255, 170, 121)">
+            <td style="text-align:center">{{member.memberCode}}</td>
+            <td style="text-align:center">{{member.memberName}}</td>
+            <td style="text-align:center">{{member.phoneNumber}}</td>
+            <td style="text-align:center">{{member.memberAddress}}</td>
+            <td style="text-align:center">{{member.aadharNo}}</td>
+            <td style="text-align:center">{{member.gender}}</td>
+
+
+            <td style="text-align:center">
+              <a [routerLink]="['/Pages/viewmember', member.id]">
+              <img style="height: 35px;width:35px;" src="../assets/Images/eye.png" ></a> &nbsp; &nbsp;
+
+            <a [routerLink]="['/Pages/updatemember', member.id]">
+              <img style="height: 35px;width: 35px;" src="../assets/Images/edit.png"></a> &nbsp; &nbsp; 
+
+            <a [routerLink]="['/Pages/confirmdeletemember', member.id]">
+              <img style="height: 35px;width:35px;" src="../assets/Images/red-bin.png"></a> 
+
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

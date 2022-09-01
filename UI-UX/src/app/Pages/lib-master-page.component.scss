@@ -1,0 +1,47 @@
+// @media(min-height:10px){
+    .pxMedia{
+        height: 592px;
+        margin-top: 64px;
+        overflow-x: hidden;
+     }
+//  }
+
+//   .pxMedia{
+//     background-color: lightblue;
+//   }
+.head {
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    text-align: center;
+ }
+ .col-md-4 {
+     padding-left: 0px !important;
+     padding-right: 0px !important;
+ }
+ .col-md-8{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.fixed-header {
+    position: fixed;
+    z-index:999;
+    height: 62px;
+  }
+  #frugalmap {
+    height: 300px;
+    width: 100%;
+    top: 50px;
+    position: relative;
+    background: #2ab4c0;
+  }
+  
+  .mat-elevation-z5 {
+    position: relative;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 50px;
+  }
